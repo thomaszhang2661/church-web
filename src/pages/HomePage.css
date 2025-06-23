@@ -1,0 +1,571 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全局防止横向滚动和背景问题 */
+html {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+}
+
+.home {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+  opacity: 0.8;
+}
+
+.nav .btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav .btn-outline {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.nav .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.nav .btn-primary {
+  background: #2C3E50;
+  border: none;
+  color: white;
+}
+
+.nav .btn-primary:hover {
+  background: #1a252f;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+    url('/images/church-hero-bg.avif');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  line-height: 0.9;
+}
+
+.hero .subtitle {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  opacity: 0.95;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Info Bar */
+.info-bar {
+  background: rgba(245, 240, 235, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 60px 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.info-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  text-align: center;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-icon {
+  width: auto;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #B8956A;
+}
+
+.info-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 8px;
+}
+
+.info-text {
+  color: #8B9DC3;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Newsletter Section */
+.newsletter {
+  padding: 120px 40px;
+  background: #FAFAFA;
+  width: 100%;
+}
+
+.newsletter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.newsletter-content h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #2C3E50;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.newsletter-content p {
+  font-size: 18px;
+  color: #6C757D;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 16px 20px;
+  border: 2px solid #E9ECEF;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: #B8956A;
+}
+
+.newsletter-form button {
+  padding: 16px 32px;
+  background: #B8956A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+  background: #A68B5B;
+}
+
+.newsletter-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+}
+
+.pastor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Bible Study Section */
+.bible-study {
+  padding: 120px 40px;
+  background: white;
+}
+
+.bible-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.bible-image {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(135deg, #CDA45E, #8B6F47);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.bible-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+.bible-img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  object-position: center;
+  position: relative;
+  z-index: 1;
+  filter: brightness(0) invert(1);
+}
+
+.bible-verse {
+  font-size: 14px;
+  color: #B8956A;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.bible-quote {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: #2C3E50;
+  line-height: 1.4;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Contact Section */
+.contact {
+  padding: 120px 40px;
+  background: #E8E2D4;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.contact-info h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: #2C3E50;
+  margin-bottom: 24px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  color: #6C757D;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.contact-details {
+  margin-bottom: 60px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #2C3E50;
+}
+
+.contact-item svg {
+  margin-right: 16px;
+  color: #B8956A;
+}
+
+.contact-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contact-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2C3E50;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 16px 20px;
+  border: 2px solid rgba(184, 149, 106, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #B8956A;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  padding: 16px 32px;
+  background: #2C3E50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background: #1a252f;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero {
+    background-attachment: scroll;
+  }
+  
+  .newsletter-container,
+  .bible-container,
+  .contact-container {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .nav {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav .btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .hero {
+    background-attachment: scroll;
+    padding: 120px 20px 60px;
+  }
+
+  .info-bar {
+    padding: 40px 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .newsletter,
+  .bible-study,
+  .contact {
+    padding: 80px 20px;
+  }
+
+  .newsletter-container,
+  .bible-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .newsletter-image,
+  .bible-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 100px 16px 40px;
+  }
+
+  .hero-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+  }
+
+  .info-bar,
+  .newsletter,
+  .bible-study,
+  .contact {
+    padding: 60px 16px;
+  }
+}
