@@ -93,10 +93,17 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Newsletter Section */}
+      {/* 合并的 Newsletter 和 Bible Study Section */}
       <section className="newsletter">
         <div className="newsletter-container">
           <div className="newsletter-content">
+            <div className="newsletter-image">
+              <img
+                src="/images/josh-katelyn.png"
+                alt="Pastor Josh and Katelyn"
+                className="pastor-photo"
+              />
+            </div>
             <h2>Updates coming soon, let's stay connected</h2>
             <p>
               Get on the email list to get updates about worship, Bible studies,
@@ -113,27 +120,14 @@ const Home: React.FC = () => {
               <button type="submit">Get updates</button>
             </form>
           </div>
-          <div className="newsletter-image">
-            <img
-              src="/images/josh-katelyn.png"
-              alt="Pastor Josh and Katelyn"
-              className="pastor-photo"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Bible Study Section */}
-      <section className="bible-study">
-        <div className="bible-container">
-          <div className="bible-image">
-            <img
-              src="/images/bible_study_noise.avif"
-              alt="Bible Study"
-              className="bible-img"
-            />
-          </div>
           <div className="bible-content">
+            <div className="bible-image">
+              <img
+                src="/images/bible_study_noise.avif"
+                alt="Bible Study"
+                className="bible-img"
+              />
+            </div>
             <div className="bible-verse">John 8:12</div>
             <blockquote className="bible-quote">
               When Jesus spoke again to the people, he said, "I am the light of

@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,8 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
   width: 100%;
@@ -95,7 +95,7 @@ body {
 }
 
 .nav .btn-primary {
-  background: #2C3E50;
+  background: #2c3e50;
   border: none;
   color: white;
 }
@@ -107,10 +107,9 @@ body {
 /* Hero Section */
 .hero {
   min-height: 100vh;
-  width: 100%;
-  background: 
-    linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
-    url('/images/church-hero-bg.avif');
+  width: 100vw;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+    url("/images/church-hero-bg.avif");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -198,26 +197,26 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   font-size: 32px;
-  color: #B8956A;
+  color: #b8956a;
 }
 
 .info-title {
   font-size: 18px;
   font-weight: 600;
-  color: #2C3E50;
+  color: #2c3e50;
   margin-bottom: 8px;
 }
 
 .info-text {
-  color: #8B9DC3;
+  color: #8b9dc3;
   font-size: 16px;
   line-height: 1.5;
 }
 
-/* Newsletter Section */
+/* 修改后的 Newsletter Section - 现在包含两个部分的内容 */
 .newsletter {
   padding: 120px 40px;
-  background: #FAFAFA;
+  background: #fafafa;
   width: 100%;
 }
 
@@ -227,20 +226,39 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: stretch;
+}
+
+.newsletter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.newsletter-content .newsletter-image {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  margin-bottom: 50px;
+  /* border-radius: 24px;
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+  margin-right: auto;
+  margin-bottom: 10px; */
 }
 
 .newsletter-content h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
-  color: #2C3E50;
+  color: #2c3e50;
   margin-bottom: 24px;
   line-height: 1.2;
 }
 
 .newsletter-content p {
   font-size: 18px;
-  color: #6C757D;
+  color: #6c757d;
   margin-bottom: 32px;
   line-height: 1.6;
 }
@@ -254,7 +272,7 @@ body {
 .newsletter-form input {
   flex: 1;
   padding: 16px 20px;
-  border: 2px solid #E9ECEF;
+  border: 2px solid #e9ecef;
   border-radius: 8px;
   font-size: 16px;
   background: white;
@@ -263,12 +281,12 @@ body {
 
 .newsletter-form input:focus {
   outline: none;
-  border-color: #B8956A;
+  border-color: #b8956a;
 }
 
 .newsletter-form button {
   padding: 16px 32px;
-  background: #B8956A;
+  background: #b8956a;
   color: white;
   border: none;
   border-radius: 8px;
@@ -280,74 +298,60 @@ body {
 }
 
 .newsletter-form button:hover {
-  background: #A68B5B;
-}
-
-.newsletter-image {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  height: 500px;
-  width: 100%;
+  background: #a68b5b;
 }
 
 .pastor-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  border-radius: 16px;
 }
 
-/* Bible Study Section */
-.bible-study {
-  padding: 120px 40px;
-  background: white;
+/* Bible Study 内容现在在右侧 */
+.bible-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
 }
 
-.bible-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.bible-image {
+.bible-content .bible-image {
   border-radius: 16px;
   overflow: hidden;
-  height: 500px;
+  height: 100%;
   width: 100%;
-  background: linear-gradient(135deg, #CDA45E, #8B6F47);
+  top: 100px;
+  background: linear-gradient(135deg, #cda45e, #8b6f47);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.bible-image::before {
-  content: '';
+.bible-content .bible-image::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
 }
 
 .bible-img {
-  width: 60%;
-  height: 60%;
-  object-fit: contain;
-  object-position: center;
-  position: relative;
-  z-index: 1;
-  filter: brightness(0) invert(1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .bible-verse {
   font-size: 14px;
-  color: #B8956A;
+  color: #b8956a;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -356,7 +360,7 @@ body {
 
 .bible-quote {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
-  color: #2C3E50;
+  color: #2c3e50;
   line-height: 1.4;
   font-weight: 300;
   font-style: italic;
@@ -365,7 +369,7 @@ body {
 /* Contact Section */
 .contact {
   padding: 120px 40px;
-  background: #E8E2D4;
+  background: #e8e2d4;
 }
 
 .contact-container {
@@ -379,13 +383,13 @@ body {
 .contact-info h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
-  color: #2C3E50;
+  color: #2c3e50;
   margin-bottom: 24px;
 }
 
 .contact-info p {
   font-size: 18px;
-  color: #6C757D;
+  color: #6c757d;
   margin-bottom: 40px;
   line-height: 1.6;
 }
@@ -399,12 +403,12 @@ body {
   align-items: center;
   margin-bottom: 20px;
   font-size: 16px;
-  color: #2C3E50;
+  color: #2c3e50;
 }
 
 .contact-item svg {
   margin-right: 16px;
-  color: #B8956A;
+  color: #b8956a;
 }
 
 .contact-logo {
@@ -434,7 +438,7 @@ body {
 .form-group label {
   font-size: 16px;
   font-weight: 500;
-  color: #2C3E50;
+  color: #2c3e50;
   margin-bottom: 8px;
 }
 
@@ -452,7 +456,7 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #B8956A;
+  border-color: #b8956a;
 }
 
 .form-group textarea {
@@ -462,7 +466,7 @@ body {
 
 .submit-btn {
   padding: 16px 32px;
-  background: #2C3E50;
+  background: #2c3e50;
   color: white;
   border: none;
   border-radius: 8px;
@@ -482,9 +486,8 @@ body {
   .hero {
     background-attachment: scroll;
   }
-  
+
   .newsletter-container,
-  .bible-container,
   .contact-container {
     gap: 60px;
   }
@@ -524,13 +527,11 @@ body {
   }
 
   .newsletter,
-  .bible-study,
   .contact {
     padding: 80px 20px;
   }
 
   .newsletter-container,
-  .bible-container,
   .contact-container {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -541,8 +542,8 @@ body {
     gap: 16px;
   }
 
-  .newsletter-image,
-  .bible-image {
+  .newsletter-content .newsletter-image,
+  .bible-content .bible-image {
     height: 300px;
   }
 }
@@ -564,7 +565,6 @@ body {
 
   .info-bar,
   .newsletter,
-  .bible-study,
   .contact {
     padding: 60px 16px;
   }
