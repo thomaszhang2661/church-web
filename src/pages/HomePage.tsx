@@ -23,78 +23,160 @@ const Home: React.FC = () => {
   return (
     <div className="home">
       {/* Header */}
-      <header className="header">
-        <div className="logo">
-          <img
-            src="/images/harbor-logo-symbol-white.svg"
-            alt="Harbor Lutheran Church"
-            className="logo-img"
-          />
-        </div>
-        <nav className="nav">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <a href="#give" className="btn btn-outline">
-            Give
-          </a>
-          <a href="#contact" className="btn btn-primary">
-            Get in touch
-          </a>
-        </nav>
-      </header>
-
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-logo">
+      <div className="hero-info-wrapper">
+        <header className="header">
+          <div className="logo">
             <img
               src="/images/harbor-logo-symbol-white.svg"
               alt="Harbor Lutheran Church"
-              className="hero-logo-img"
+              className="logo-img"
             />
           </div>
-          <h1>HARBOR</h1>
-          <p className="subtitle">LUTHERAN CHURCH</p>
-        </div>
-      </section>
+          <nav className="nav">
+            <button
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              Home
+            </button>
+            <button
+              className=""
+              onClick={() => {
+                document
+                  .getElementById("about-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              About
+            </button>
+            <button
+              className=""
+              onClick={() => {
+                document
+                  .getElementById("contact-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Contact
+            </button>
+            <button
+              className="btn btn-outline"
+              onClick={() => {
+                document
+                  .getElementById("contact-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Give
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                document
+                  .getElementById("contact-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Get in touch
+            </button>
+          </nav>
+        </header>
 
-      {/* Info Bar */}
-      <section className="info-bar">
-        <div className="info-grid">
-          <div className="info-item">
-            <div className="info-icon">
-              <img src="/images/icons/location.svg" alt="Location" />
+        {/* Hero Section */}
+        <section className="hero">
+          <div className="hero-content">
+            <div className="hero-logo">
+              <img
+                src="/images/harbor-logo-symbol-white.svg"
+                alt="Harbor Lutheran Church"
+                className="hero-logo-img"
+              />
             </div>
-            <h3 className="info-title">Cambridge, MA</h3>
-            <p className="info-text">288 Norfolk Street</p>
+            <h1>HARBOR</h1>
+            <p className="subtitle">LUTHERAN CHURCH</p>
           </div>
-          <div className="info-item">
-            <div className="info-icon">
-              <img src="/images/icons/worship.svg" alt="Worship" />
+        </section>
+
+        {/* Info Bar */}
+        <section className="info-bar">
+          <div className="info-grid">
+            <div className="info-item">
+              <div className="info-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 256 256"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M228.92 49.69a8 8 0 0 0-6.86-1.45l-61.13 15.28l-61.35-30.68a8 8 0 0 0-5.52-.6l-64 16A8 8 0 0 0 24 56v144a8 8 0 0 0 9.94 7.76l61.13-15.28l61.35 30.68a8.15 8.15 0 0 0 3.58.84a8 8 0 0 0 1.94-.24l64-16A8 8 0 0 0 232 200V56a8 8 0 0 0-3.08-6.31M104 52.94l48 24v126.12l-48-24Zm-64 9.31l48-12v127.5l-48 12Zm176 131.5l-48 12V78.25l48-12Z"
+                  />
+                </svg>
+              </div>
+              <h3 className="info-title">Cambridge, MA</h3>
+              <p className="info-text">288 Norfolk Street</p>
             </div>
-            <h3 className="info-title">Worship</h3>
-            <p className="info-text">Sunday at 10am</p>
-          </div>
-          <div className="info-item">
-            <div className="info-icon">
-              <img src="/assets/icons/pastor.svg" alt="Pastor" />
+            <div className="info-item">
+              <div className="info-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="m12 6l-7.718 4.824a.6.6 0 0 0-.282.508V21.4a.6.6 0 0 0 .6.6H12m0-16l7.718 4.824a.6.6 0 0 1 .282.508V21.4a.6.6 0 0 1-.6.6H12m0-16V4m0-2v2m-2 0h2m0 0h2m-2 18v-5m4 .01l.01-.011M16 13.01l.01-.011M12 13.01l.01-.011M8 13.01l.01-.011M8 17.01l.01-.011"
+                  />
+                </svg>
+              </div>
+              <h3 className="info-title">Worship</h3>
+              <p className="info-text">Sunday at 10am</p>
             </div>
-            <h3 className="info-title">Pastor</h3>
-            <p className="info-text">Rev. Joshua Koelpin</p>
-          </div>
-          <div className="info-item">
-            <div className="info-icon">
-              <img src="/assets/icons/contact.svg" alt="Contact" />
+            <div className="info-item">
+              <div className="info-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M18 30h-4a2 2 0 0 1-2-2v-7a2 2 0 0 1-2-2v-6a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v6a2 2 0 0 1-2 2v7a2 2 0 0 1-2 2m-5-18a.94.94 0 0 0-1 1v6h2v9h4v-9h2v-6a.94.94 0 0 0-1-1zm3-3a4 4 0 1 1 4-4a4 4 0 0 1-4 4m0-6a2 2 0 1 0 2 2a2 2 0 0 0-2-2" />
+                </svg>
+              </div>
+              <h3 className="info-title">Pastor</h3>
+              <p className="info-text">Rev. Joshua Koelpin</p>
             </div>
-            <h3 className="info-title">Contact</h3>
-            <p className="info-text">pastorjosh@harborlutheran.com</p>
+            <div className="info-item">
+              <div className="info-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2m-2.2 2L16 14.78L6.2 8ZM4 24V8.91l11.43 7.91a1 1 0 0 0 1.14 0L28 8.91V24Z" />
+                </svg>
+              </div>
+              <h3 className="info-title">Contact</h3>
+              <p className="info-text">pastorjosh@harborlutheran.com</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* 合并的 Newsletter 和 Bible Study Section */}
-      <section className="newsletter">
+      <section className="newsletter" id="about-section">
         <div className="newsletter-container">
           <div className="newsletter-content">
             <div className="newsletter-image">
@@ -139,7 +221,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="contact">
+      <section className="contact" id="contact-section">
         <div className="contact-container">
           <div className="contact-info">
             <h2>Get in touch</h2>
