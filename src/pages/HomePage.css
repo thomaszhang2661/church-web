@@ -21,6 +21,7 @@ body {
   margin: 0;
   padding: 0;
   min-width: 100%;
+  background: #e8e2d4;
 }
 
 .home {
@@ -107,13 +108,15 @@ body {
 }
 
 .nav .btn-outline {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  background: none;
+  border: 1px solid rgb(255, 255, 255);
+  backdrop-filter: none;
+  /* 边框为白色 */
+  color: white;
 }
 
 .nav .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #a68b5b;
 }
 
 .nav .btn-primary {
@@ -152,6 +155,8 @@ body {
 }
 
 .hero-content {
+  margin-top: clamp(100px, 15vw, 250px); /* 数值可调整 */
+
   position: relative;
   z-index: 2;
   max-width: 800px;
@@ -159,8 +164,8 @@ body {
 }
 
 .hero-logo {
-  width: 120px;
-  height: 120px;
+  width: clamp(50px, 15vw, 150px);
+  height: clamp(50px, 15vw, 150px);
   margin: 0 auto 40px;
   display: flex;
   align-items: center;
@@ -175,19 +180,20 @@ body {
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 12vw, 8rem);
+  font-family: "Oswald", "Montserrat", "Arial", sans-serif;
+  font-size: clamp(2rem, 8vw, 6rem);
   font-weight: 900;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   margin-bottom: 16px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  line-height: 0.9;
+  line-height: 0.8;
 }
 
 .hero .subtitle {
   font-size: clamp(1.2rem, 4vw, 2.5rem);
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  opacity: 0.95;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  opacity: 1;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -201,12 +207,9 @@ body {
 }
 
 .info-grid {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
-  text-align: center;
+  gap: 8px;
 }
 
 .info-item {
@@ -406,6 +409,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
+  position: relative;
 }
 
 .contact-info h2 {
@@ -446,8 +450,8 @@ body {
 }
 
 .contact-logo-img {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   opacity: 0.6;
 }
@@ -526,7 +530,7 @@ body {
     padding: 20px;
     flex-direction: column;
     gap: 20px;
-    background: rgba(0, 0, 0, 0.9);
+    background: none;
   }
 
   .nav {
@@ -595,5 +599,17 @@ body {
   .newsletter,
   .contact {
     padding: 60px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr); /* 小屏幕2列，自动换行 */
+    font-size: 12px;
+  }
+  .info-item {
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 4px;
   }
 }
