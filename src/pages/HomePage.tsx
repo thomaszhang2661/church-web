@@ -1,6 +1,26 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import emailjs from "emailjs-com";
 import "./HomePage.css";
+
+const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  emailjs
+    .sendForm(
+      "service_bvr9byy", // 你的 Service ID
+      "template_zscwr2g", // 替换为你的 Template ID
+      e.target as HTMLFormElement,
+      "WkL486UDoiX9TdUEn" // 替换为你的 Public Key
+    )
+    .then(
+      (result) => {
+        alert("邮件发送成功！");
+      },
+      (error) => {
+        alert("邮件发送失败，请稍后再试。");
+      }
+    );
+};
 
 const Home: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -13,12 +33,12 @@ const Home: React.FC = () => {
     setEmail("");
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Contact form:", { name, email, message: contactMessage });
-    setName("");
-    setContactMessage("");
-  };
+  // const handleContactSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("Contact form:", { name, email, message: contactMessage });
+  //   setName("");
+  //   setContactMessage("");
+  // };
 
   return (
     <div className="home">
@@ -258,6 +278,7 @@ const Home: React.FC = () => {
                 <input
                   type="text"
                   id="name"
+                  name="from_name"
                   placeholder="Jon Smith"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -269,6 +290,7 @@ const Home: React.FC = () => {
                 <input
                   type="email"
                   id="email"
+                  name="user_email"
                   placeholder="name@example.com"
                   required
                 />
@@ -277,6 +299,7 @@ const Home: React.FC = () => {
                 <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={6}
                   placeholder="Type your message..."
                   value={contactMessage}
