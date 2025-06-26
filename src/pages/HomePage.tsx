@@ -3,34 +3,41 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import emailjs from "emailjs-com";
 import "./HomePage.css";
 
-const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  emailjs
-    .sendForm(
-      "service_bvr9byy", // 你的 Service ID
-      "template_zscwr2g", // 替换为你的 Template ID
-      e.target as HTMLFormElement,
-      "WkL486UDoiX9TdUEn" // 替换为你的 Public Key
-    )
-    .then(
-      (result) => {
-        alert("邮件发送成功！");
-      },
-      (error) => {
-        alert("邮件发送失败，请稍后再试。");
-      }
-    );
-};
-
 const Home: React.FC = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [contactMessage, setContactMessage] = useState("");
+  const [isSent, setIsSent] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Newsletter signup:", email);
     setEmail("");
+  };
+  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_bvr9byy", // 你的 Service ID
+        "template_zscwr2g", // 替换为你的 Template ID
+        e.target as HTMLFormElement,
+        "WkL486UDoiX9TdUEn" // 替换为你的 Public Key
+      )
+      .then(() => {
+        setIsSent("success");
+        setTimeout(() => {
+          setIsSent("idle");
+        }, 3000);
+      })
+      .catch((error: any) => {
+        // 发送失败
+        console.error("Error sending email", error);
+        setIsSent("error");
+        // 5秒后重置状态，让用户可以重试
+        setTimeout(() => setIsSent("idle"), 3000);
+      });
   };
 
   // const handleContactSubmit = (e: React.FormEvent) => {
@@ -272,6 +279,22 @@ const Home: React.FC = () => {
           </div>
 
           <div className="contact-form-container">
+            {/* 状态提示 */}
+            {isSent === "success" && (
+              <div className="success-message">
+                Success! I will get back to you as soon as possible.
+              </div>
+            )}
+
+            {isSent === "error" && (
+              <div className="error-message">
+                Failed to send message. Please try again later.
+              </div>
+            )}
+
+            {isSent === "sending" && (
+              <div className="sending-message">Sending your message...</div>
+            )}
             <form className="contact-form" onSubmit={handleContactSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -282,6 +305,7 @@ const Home: React.FC = () => {
                   placeholder="Jon Smith"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  disabled={isSent === "sending"} // 发送时禁用
                   required
                 />
               </div>
@@ -292,6 +316,7 @@ const Home: React.FC = () => {
                   id="email"
                   name="user_email"
                   placeholder="name@example.com"
+                  disabled={isSent === "sending"} // 发送时禁用
                   required
                 />
               </div>
@@ -304,10 +329,16 @@ const Home: React.FC = () => {
                   placeholder="Type your message..."
                   value={contactMessage}
                   onChange={(e) => setContactMessage(e.target.value)}
+                  disabled={isSent === "sending"} // 发送时禁用
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="submit-btn">
+              <button
+                type="submit"
+                className="submit-btn"
+                disabled={isSent === "sending"}
+              >
+                {isSent === "sending" ? "Sending..." : "Submit"}
                 Submit
               </button>
             </form>
