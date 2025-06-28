@@ -16,6 +16,7 @@ const Home: React.FC = () => {
     console.log("Newsletter signup:", email);
     setEmail("");
   };
+
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     emailjs
@@ -39,13 +40,6 @@ const Home: React.FC = () => {
         setTimeout(() => setIsSent("idle"), 3000);
       });
   };
-
-  // const handleContactSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   console.log("Contact form:", { name, email, message: contactMessage });
-  //   setName("");
-  //   setContactMessage("");
-  // };
 
   return (
     <div className="home">
@@ -86,6 +80,26 @@ const Home: React.FC = () => {
               }}
             >
               Contact
+            </button>
+            <button
+              className=""
+              onClick={() => {
+                document
+                  .getElementById("about-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Sermons
+            </button>
+            <button
+              className=""
+              onClick={() => {
+                document
+                  .getElementById("about-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Resources
             </button>
             <button
               className="btn btn-outline"
@@ -339,7 +353,6 @@ const Home: React.FC = () => {
                 disabled={isSent === "sending"}
               >
                 {isSent === "sending" ? "Sending..." : "Submit"}
-                Submit
               </button>
             </form>
           </div>
