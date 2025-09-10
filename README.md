@@ -1,6 +1,6 @@
 # Harbor Lutheran Church Website
 
-A lightweight, mobile‑first church website built with React and Vite. It focuses on clear communication, fast loading, and simple interactions (smooth in‑page navigation and a contact form).
+A lightweight church website built with React and Vite. It focuses on clear communication, fast loading, and simple interactions (smooth in‑page navigation and a contact form).
 
 ## Overview
 
