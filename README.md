@@ -1,60 +1,115 @@
-# React + TypeScript + Vite
+# Harbor Lutheran Church Website
 
-## Environment Setup
+A lightweight, mobile‑first church website built with React and Vite. It focuses on clear communication, fast loading, and simple interactions (smooth in‑page navigation and a contact form).
 
-1. Copy `.env.example` to `.env.local`
-2. Fill in your Supabase project information
-3. Get configuration details from Supabase Dashboard > Settings > API
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Single‑page layout with anchor navigation (Home / About / Contact)
+- Responsive design across mobile, tablet, and desktop
+- Info Bar for core facts (Location / Worship time / Pastor / Contact)
+- Contact form powered by EmailJS with inline success/error feedback
+- Minimal dependencies, easy to deploy on Vercel
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Production (example): https://your-vercel-domain.vercel.app
 
-## Expanding the ESLint configuration
+Replace the link above with your actual Vercel deployment.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+- Smooth scroll to sections via buttons and anchor links
+- Inline form status (idle / sending / success / error)
+- Consistent visual system and accessible focus states
+- Optimized hero background and image layering
+
+## Tech Stack
+
+- React 19 + TypeScript + Vite
+- CSS (responsive layout, transitions)
+- Lucide React (icons)
+- EmailJS (contact form)
+
+## Getting Started
+
+```bash
+# 1) Install dependencies
+npm install
+
+# 2) Start development server (http://localhost:5173)
+npm run dev
+
+# 3) Build for production
+npm run build
+
+# 4) Preview the production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Environment Variables (optional)
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+If you want the contact form to send emails, create `.env.local` in the project root and add:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
+```bash
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
+
+Without these, the UI renders normally but won’t send emails.
+
+## Scripts
+
+- `npm run dev` – Start the dev server
+- `npm run build` – Build production assets
+- `npm run preview` – Preview the production build
+- `npm run lint` – Run ESLint
+
+## Project Structure
+
+```
+src/
+├─ pages/
+│  ├─ HomePage.tsx       # Main page component
+│  └─ HomePage.css       # Styles for the main page
+├─ App.tsx               # Routes (home only)
+├─ main.tsx              # React entry
+├─ index.css             # Global styles
+└─ assets/               # Static assets (images, etc.)
+```
+
+## Accessibility
+
+- High contrast and readable input text
+- Visible focus states and hover feedback
+- Larger tap targets on mobile
+- Smooth scrolling with reduced layout shift
+
+## Deployment (Vercel)
+
+1. Push the repository to GitHub/GitLab/Bitbucket
+2. Create a new project on https://vercel.com and import the repo
+3. Build Command: `npm run build`
+4. Output Directory: `dist`
+5. If using EmailJS, add the `VITE_...` variables under Project → Settings → Environment Variables
+
+## Roadmap
+
+- [ ] Optional sermons/resources pages powered by an external CMS (kept as a separate backend service)
+- [ ] Dark mode
+- [ ] i18n (English/Chinese)
+- [ ] Lighthouse improvements (performance / a11y)
+
+## Contributing
+
+Issues and pull requests are welcome. Please open an issue first to discuss major changes.
+
+## License
+
+MIT
+
+## Contact
+
+- Maintainer: Your Name
+- Email: your-email@example.com
+- Project: Harbor Lutheran Church Website
